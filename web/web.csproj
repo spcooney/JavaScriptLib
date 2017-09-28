@@ -68,6 +68,7 @@
     <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="src\StrUtil.js" />
     <Content Include="src\StrUtil.min.js" />
+    <Content Include="test\StrUtil.tests.min.js" />
     <Content Include="test\StrUtil.tests.js" />
     <Content Include="test\StrUtilTest.html" />
   </ItemGroup>

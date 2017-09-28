@@ -66,5 +66,34 @@ StrUtil.Core = StrUtil.prototype = {
     // Checks if the string is not undefined, null, or a length greather than zero
     IsNotNull: function (obj) {
         return !((obj === undefined) || (obj === null) || (obj.length <= 0));
+    },
+    // Returns the characters to the left of the length
+    Left: function (value, length) {
+        if (length <= 0) {
+            return StrUtil.Core.EmptyString;
+        }
+        else if (length > String(value).length) {
+            return value;
+        }
+        else {
+            return String(value).substring(0, length);
+        }
+    },
+    // Replaces all of the occurences with the replacement
+    ReplaceAll: function (target, value, replacement) {
+        return target.replace(new RegExp(value, 'g'), replacement);
+    },
+    // Returns the characters to the right of the length
+    Right: function (value, length) {
+        if (length <= 0) {
+            return StrUtil.Core.EmptyString;
+        }
+        else if (length > String(value).length) {
+            return value;
+        }
+        else {
+            var len = String(value).length;
+            return String(value).substring(len, Math.abs(len - length));
+        }
     }
 };
