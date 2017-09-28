@@ -42,15 +42,15 @@ StrUtil.Core = StrUtil.prototype = {
         return arrayOne.join(Helper.EmptyString);
     },
     IsNullOrEmpty: function (txt) {
-        return ((ecmUtil.core.isNull(txt)) || (txt === ecmUtil.core.emptyString));
+        return ((StrUtil.Core.IsNull(txt)) || (txt === StrUtil.Core.EmptyString));
     },
     IsNotNullOrEmpty: function (txt) {
-        return !(ecmUtil.core.isNotNullOrEmpty);
+        return !(StrUtil.Core.IsNullOrEmpty(txt));
     },
     IsNull: function (obj) {
         return ((obj === undefined) || (obj === null) || (obj.length <= 0));
     },
     IsNotNull: function (obj) {
-        return !(ecmUtil.core.isNull(obj));
+        return !((obj === undefined) || (obj === null) || (obj.length <= 0));
     }
 };

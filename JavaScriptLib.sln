@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9949C2AB-DC2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web\web.csproj", "{3C600C7D-175F-4092-A4DB-585A8D9C5178}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "help", "help", "{919BBA71-4D51-4744-BB44-CDCEC92C3762}"
+	ProjectSection(SolutionItems) = preProject
+		help\jasmine-matchers.txt = help\jasmine-matchers.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
