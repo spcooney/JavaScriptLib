@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9949C2AB-DC2E-4846-B9A0-2F96B92BB7D6}"
+	ProjectSection(SolutionItems) = preProject
+		StrUtil.js = StrUtil.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0EC0E160-FBF6-44BB-AF28-76357184728B}"
+	ProjectSection(SolutionItems) = preProject
+		StrUtilTest.html = StrUtilTest.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
