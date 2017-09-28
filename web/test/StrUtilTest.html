@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>String Util Test</title>
+    <script type="text/javascript" src="../src/StrUtil.js"></script>
+    <script type="text/javascript">
+        function TestIsNull() {
+            var nullVar = null;
+            if (StrUtil.Core.IsNull(nullVar)) {
+                document.getElementById("DivIsNullTest").innerHTML = "<span>True, variable is null.</span>";
+            }
+            else {
+                document.getElementById("DivIsNullTest").innerHTML = "<span>False, variable is not null.</span>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id="DivIsNullTest">
+        </div>
+        <input type="button" value="Test Is Null" onclick="javascript:TestIsNull();" />
+    </div>
+</body>
+</html>
