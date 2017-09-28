@@ -12,7 +12,9 @@ StrUtil.Core = StrUtil.prototype = {
             return new retObj;
         }
     },
+    // An empty string ""
     EmptyString: "",
+    // Encodes a string to Base64
     EncodeBase64: function (val) {
         var baseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
         var arrayOne = [];
@@ -41,15 +43,27 @@ StrUtil.Core = StrUtil.prototype = {
 
         return arrayOne.join(Helper.EmptyString);
     },
+    // Gets the object type as a string
+    GetType: function (value) {
+        return Object.prototype.toString.apply(value);
+    },
+    // Determines if the object is a string
+    IsString: function (value) {
+        return (StrUtil.Core.GetType('String', value) === "[object String]");
+    },
+    // Checks if the string is null or empty
     IsNullOrEmpty: function (txt) {
         return ((StrUtil.Core.IsNull(txt)) || (txt === StrUtil.Core.EmptyString));
     },
+    // Checks if the string is not null or empty
     IsNotNullOrEmpty: function (txt) {
         return !(StrUtil.Core.IsNullOrEmpty(txt));
     },
+    // Checks if the string is undefined, null, or has a zero length
     IsNull: function (obj) {
         return ((obj === undefined) || (obj === null) || (obj.length <= 0));
     },
+    // Checks if the string is not undefined, null, or a length greather than zero
     IsNotNull: function (obj) {
         return !((obj === undefined) || (obj === null) || (obj.length <= 0));
     }

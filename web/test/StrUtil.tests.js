@@ -1,3 +1,10 @@
+// IsString
+describe("StrUtil.Core.IsString", function () {
+    it("should equal", function () {
+        var result = StrUtil.Core.IsString("This is not null");
+        expect(result).toBe(true);
+    });
+});
 // IsNull
 describe("StrUtil.Core.IsNull", function () {
     it("should equal", function () {
