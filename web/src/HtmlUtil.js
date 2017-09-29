@@ -2,9 +2,9 @@
     HtmlUtil = function () {
         return new HtmlUtil.Core.init();
     };
-HtmlUtil.Core = StrUtil.prototype = {
+HtmlUtil.Core = HtmlUtil.prototype = {
     Version: version,
-    Constructor: StrUtil,
+    Constructor: HtmlUtil,
     Clone: function (obj) {
         var retObj = arguments.callee;
         if (arguments.length === 1) {

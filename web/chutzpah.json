@@ -1,9 +1,10 @@
 ﻿{
     "Framework": "jasmine",
     "References": [
+        { "Path": "src/HtmlUtil.js" },
         { "Path": "src/StrUtil.js" }
     ],
-    "Tests": [ 
+    "Tests": [
         { "Path": "test" }
     ]
 }
