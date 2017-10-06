@@ -100,6 +100,11 @@ HtmlUtil.Core = HtmlUtil.prototype = {
     ScrollToTopOfPage: function () {
         window.scroll(0, 0);
     },
+    WebMethodDelete: "DELETE",
+    WebMethodGet: "GET",
+    WebMethodHead: "HEAD",
+    WebMethodPost: "POST",
+    WebMethodPut: "PUT",
     WindowPopupCenter: function (url, width, height) {
         var left = ((screen.width / 2) - (width / 2));
         var top = ((screen.height / 2) - (height / 2));

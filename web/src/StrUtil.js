@@ -47,6 +47,13 @@ StrUtil.Core = StrUtil.prototype = {
     GetType: function (value) {
         return Object.prototype.toString.apply(value);
     },
+    // Inserts a string at the start of the index
+    InsertString: function (value, index, insertedValue) {
+        if (index > 0) {
+            return (value.substring(0, index) + insertedValue + value.substring(index, value.length));
+        }
+        return (insertedValue + value);
+    },
     // Determines if the object is a string
     IsString: function (value) {
         return (StrUtil.Core.GetType('String', value) === "[object String]");

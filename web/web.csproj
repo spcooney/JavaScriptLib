@@ -66,10 +66,13 @@
     <Content Include="Scripts\jasmine\console.js" />
     <Content Include="Scripts\jasmine\jasmine-html.js" />
     <Content Include="Scripts\jasmine\jasmine.js" />
+    <Content Include="src\DateUtil.js" />
+    <Content Include="src\DateUtil.min.js" />
     <Content Include="src\HtmlUtil.js" />
     <Content Include="src\HtmlUtil.min.js" />
     <Content Include="src\StrUtil.js" />
     <Content Include="src\StrUtil.min.js" />
+    <Content Include="test\DateUtil.tests.js" />
     <Content Include="test\HtmlUtil.tests.js" />
     <Content Include="test\StrUtil.tests.min.js" />
     <Content Include="test\StrUtil.tests.js" />

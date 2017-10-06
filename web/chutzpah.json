@@ -1,6 +1,7 @@
 ﻿{
     "Framework": "jasmine",
     "References": [
+        { "Path": "src/DateUtil.js" },
         { "Path": "src/HtmlUtil.js" },
         { "Path": "src/StrUtil.js" }
     ],
