@@ -70,6 +70,10 @@ DateUtil.Core = DateUtil.prototype = {
         }
         return qtr;
     },
+    // Checks if the current date is a date object
+    IsDate: function (date) {
+        return (Object.prototype.toString.apply(date) === "[object Date]");
+    },
     // Determines if the current date is valid
     IsValidDate: function (date) {
         if (Object.prototype.toString.call(date) === "[object Date]") {
@@ -91,5 +95,11 @@ DateUtil.Core = DateUtil.prototype = {
         var hours = date.getHours();
         newDate.setHours(hours - offset);
         return newDate;
-    }
+    },
+    Ticks: function (dateTime) {
+        var ticks = 0;
+        var date = new Date(dateTime);
+        ticks = ((date.getTime() * 10000) + 621355968000000000);
+        return ticks;
+    },
 };
