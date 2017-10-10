@@ -3,6 +3,7 @@
     "References": [
         { "Path": "src/DateUtil.js" },
         { "Path": "src/HtmlUtil.js" },
+        { "Path": "src/JsUtil.js" },
         { "Path": "src/NumUtil.js" },
         { "Path": "src/StrUtil.js" }
     ],
