@@ -101,5 +101,5 @@ DateUtil.Core = DateUtil.prototype = {
         var date = new Date(dateTime);
         ticks = ((date.getTime() * 10000) + 621355968000000000);
         return ticks;
-    },
+    }
 };
