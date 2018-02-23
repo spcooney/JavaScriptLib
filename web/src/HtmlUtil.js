@@ -1,4 +1,5 @@
-﻿var version = "1.0.0.0",
+﻿// Requires StrUtil.js
+var version = "1.0.0.0",
     HtmlUtil = function () {
         return new HtmlUtil.Core.init();
     };
@@ -43,6 +44,29 @@ HtmlUtil.Core = HtmlUtil.prototype = {
     CreateSslLocationHref: function (url) {
         return ("https://" + window.location.hostname + ":" + window.location.port + "/" + url);
     },
+    // Returns the current page name from the url
+    CurrentPageName: function (keepExtension) {
+        var url = window.location.href;
+        if (StrUtil.Core.IsNullOrEmpty(url)) {
+            return StrUtil.Core.EmptyString;
+        }
+        var index = (url.lastIndexOf("/") + 1);
+        if (index <= 0) {
+            return StrUtil.Core.EmptyString;
+        }
+        var fullPgName = url.substr(index);
+        if (StrUtil.Core.IsNullOrEmpty(fullPgName)) {
+            return StrUtil.Core.EmptyString;
+        }
+        if (keepExtension) {
+            return fullPgName;
+        }
+        var extIndex = (fullPgName.lastIndexOf(".") + 1);
+        if (extIndex <= 0) {
+            return fullPgName;
+        }
+        return fullPgName.substr(extIndex);
+    },
     DecodeUrl: function (url) {
         url = url.replace(/%20/g, " ");
         url = url.replace(/%26/g, "&");
@@ -75,6 +99,28 @@ HtmlUtil.Core = HtmlUtil.prototype = {
         url = url.replace(/_/g, "%5f");
         url = url.replace("\\", "%5c");
         return url;
+    },
+    // Returns the current page name from the url
+    GetPageName: function (url, keepExtension) {
+        if (StrUtil.Core.IsNullOrEmpty(url)) {
+            return StrUtil.Core.EmptyString;
+        }
+        var index = (url.lastIndexOf("/") + 1);
+        if (index <= 0) {
+            return StrUtil.Core.EmptyString;
+        }
+        var fullPgName = url.substr(index);
+        if (StrUtil.Core.IsNullOrEmpty(fullPgName)) {
+            return StrUtil.Core.EmptyString;
+        }
+        if (keepExtension) {
+            return fullPgName;
+        }
+        var extIndex = (fullPgName.lastIndexOf(".") + 1);
+        if (extIndex <= 0) {
+            return fullPgName;
+        }
+        return fullPgName.substr(extIndex);
     },
     // Returns the value of a specified url parameter
     GetUrlParam: function (param) {

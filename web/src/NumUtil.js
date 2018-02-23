@@ -1,4 +1,5 @@
-﻿var version = "1.0.0.0",
+﻿// Requires StrUtil.js
+var version = "1.0.0.0",
     NumUtil = function () {
         return new NumUtil.Core.init();
     };
@@ -19,7 +20,7 @@ NumUtil.Core = NumUtil.prototype = {
         }
         var nVal = parseFloat(value);
         var fVal = nVal.toFixed(precision);
-        var tVal = fVal.replace(/^0+|0+$/g, "");
+        var tVal = fVal.replace(/^0+|0+$/g, StrUtil.Core.EmptyString);
         if (isNaN(tVal) || (tVal === undefined) || (tVal === null) || (tVal.length <= 0)) {
             return value;
         }
@@ -34,13 +35,13 @@ NumUtil.Core = NumUtil.prototype = {
     },
     ParseFloatWithCommas: function (value) {
         var parts = value.toString().split(".");
-        parts[0] = parts[0].replace(/,/g, "");
+        parts[0] = parts[0].replace(/,/g, StrUtil.Core.EmptyString);
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     },
     ParseFloatWithoutCommas: function (value) {
         var parts = value.toString().split(".");
-        parts[0] = parts[0].replace(/,/g, "");
+        parts[0] = parts[0].replace(/,/g, StrUtil.Core.EmptyString);
         return parts.join(".");
     }
 };
