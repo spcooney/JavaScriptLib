@@ -1,3 +1,14 @@
+// CharCount
+describe("StrUtil.Core.CharCount", function () {
+    it("should equal", function () {
+        var rs1 = StrUtil.Core.CharCount("This is not null", "i");
+        var rs2 = StrUtil.Core.CharCount("This", "i");
+        var rs3 = StrUtil.Core.CharCount("", "i");
+        expect(rs1).toBe(2);
+        expect(rs2).toBe(1);
+        expect(rs3).toBe(0);
+    });
+});
 // IsString
 describe("StrUtil.Core.IsString", function () {
     it("should equal", function () {

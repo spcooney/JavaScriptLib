@@ -12,6 +12,17 @@ StrUtil.Core = StrUtil.prototype = {
             return new retObj;
         }
     },
+    // Counts the occurrences of characters in a string
+    CharCount: function (str, char) {
+        if ((StrUtil.Core.IsNullOrEmpty(str)) || (StrUtil.Core.IsNullOrEmpty(char))) {
+            return 0;
+        }
+        var count = (str.split(char).length - 1);
+        if (count < 0) {
+            return 0;
+        }
+        return count;
+    },
     // An empty string ""
     EmptyString: "",
     // Encodes a string to Base64

@@ -128,7 +128,7 @@ DateUtil.Core = DateUtil.prototype = {
             return "00:00";
         }
         // User entered a time without a colon, so add one to the middle of the string
-        if (timeStr.length === 4 && timeStr.indexOf(":") <= 0 && !isNaN(Number(timeStr))) {        
+        if (timeStr.length === 4 && timeStr.indexOf(":") <= 0 && !isNaN(Number(timeStr))) {
             return timeStr.substring(0, 2) + ":" + timeStr.substring(2, 4);
         }
         // User entered a time without the first 0 and no colon, so add them
