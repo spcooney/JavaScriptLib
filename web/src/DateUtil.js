@@ -33,7 +33,7 @@ DateUtil.Core = DateUtil.prototype = {
         var d = new Date();
         d.setHours(t1);
         d.setMinutes(t2);
-        d.setSeconds(00);
+        d.setSeconds(0);
         return d;
     },
     // Creates a new date and sets the hours to 00:00

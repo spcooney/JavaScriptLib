@@ -26,7 +26,7 @@ HtmlUtil.Core = HtmlUtil.prototype = {
         window.document.getElementsByTagName("head")[index].appendChild(HtmlUtil.Core.CreateCssLink(path));
     },
     // Creates a script link to the specified path
-    CreateJavaScriptHeaderLink: function (path) {
+    CreateJavaScriptLink: function (path) {
         var ctrl = ele.createElement("script");
         ctrl.type = "text/javascript";
         ctrl.language = "javascript";
@@ -136,9 +136,40 @@ HtmlUtil.Core = HtmlUtil.prototype = {
         else
             return (results[1] || 0);
     },
+    // Shows a native popup in the center of a dual screen
+    PopupCenterDualScreen: function (url, title, w, h, focus) {
+        // Fixes dual-screen position 
+        var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+        var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+        var top = ((height / 2) - (h / 2)) + dualScreenTop;
+        var newWindow = window.open(url, title, 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,' +
+            'resizable=1,width=' + w + ',height=' + h + ',top=' + top + ',left=' + left);
+        // Puts focus on the newWindow
+        if ((focus) && (window.focus)) {
+            newWindow.focus();
+        }
+    },
     // Reloads the currrent window
     RefreshPage: function () {
         window.location.reload(true);
+    },
+    // Registers the enter key to an input button
+    RegisterBtnEnter: function (inputElem, btnElem) {
+        if ((inputElem !== null) && (btnElem !== null)) {
+            // Execute a function when the user releases a key on the keyboard
+            inputElem.addEventListener("keyup", function (event) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Trigger the button element with a click
+                    btnElem.click();
+                }
+            });
+        }
     },
     ScrollTo: function (x, y) {
         window.scroll(x, y);

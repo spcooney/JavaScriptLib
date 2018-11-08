@@ -82,3 +82,12 @@ describe("StrUtil.Core.ReplaceAll", function () {
         expect(noItems).toBe("12345678912341");
     });
 });
+// RemoveSingleQuotes
+describe("StrUtil.Core.RemoveSingleQuotes", function () {
+    it("should equal", function () {
+        var result1 = StrUtil.Core.RemoveSingleQuotes("'12345678912341'");
+        var result2 = StrUtil.Core.RemoveSingleQuotes("'1234912341'");
+        expect(result1).toBe("12345678912341");
+        expect(result2).toBe("1234912341");
+    });
+});

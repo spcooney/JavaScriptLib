@@ -21,7 +21,6 @@ StrUtil.Core = StrUtil.prototype = {
         var arrayTwo = [];
         var arrayLength = 0;
         var lengthOne, lengthTwo, lengthThree, lengthFour = val.length;
-
         do {
             lengthOne = val[arrayLength++];
             lengthTwo = val[arrayLength++];
@@ -89,6 +88,19 @@ StrUtil.Core = StrUtil.prototype = {
     // Replaces all of the occurences with the replacement
     ReplaceAll: function (target, value, replacement) {
         return target.replace(new RegExp(value, 'g'), replacement);
+    },
+    // Removes single quotes fromt the first and last index
+    RemoveSingleQuotes: function (value) {
+        if (StrUtil.Core.IsNullOrEmpty(value)) {
+            return value;
+        }
+        if (value.charAt(0) === "'") {
+            value = value.substr(1, (value.length - 1));
+        }
+        if (value.charAt((value.length - 1)) === "'") {
+            value = value.substr(0, (value.length - 1));
+        }
+        return value;
     },
     // Returns the characters to the right of the length
     Right: function (value, length) {

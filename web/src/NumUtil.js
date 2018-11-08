@@ -13,6 +13,17 @@ NumUtil.Core = NumUtil.prototype = {
             return new retObj;
         }
     },
+    NumberWithCommas: function (value) {
+        var parts = value.toString().split(".");
+        parts[0] = parts[0].replace(/,/g, "");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    },
+    NumberWithoutCommas: function (value) {
+        var parts = value.toString().split(".");
+        parts[0] = parts[0].replace(/,/g, "");
+        return parts.join(".");
+    },
     // Parses a float to the specified precision and removes trailing zeros
     ParseFloatNoZeros: function (value, precision) {
         if (isNaN(value)) {

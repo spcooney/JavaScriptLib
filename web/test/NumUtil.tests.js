@@ -1,4 +1,32 @@
-﻿// ParseFloatNoZeros
+﻿// NumberWithCommas
+describe("NumUtil.Core.NumberWithCommas", function () {
+    it("should equal", function () {
+        var f1 = 4302334;
+        var f2 = 453204400;
+        var f3 = 892387438.3984;
+        var result1 = NumUtil.Core.NumberWithCommas(f1);
+        var result2 = NumUtil.Core.NumberWithCommas(f2);
+        var result3 = NumUtil.Core.NumberWithCommas(f3);
+        expect(result1).toBe("4,302,334");
+        expect(result2).toBe("453,204,400");
+        expect(result3).toBe("892,387,438.3984");
+    });
+});
+// NumberWithoutCommas
+describe("NumUtil.Core.NumberWithoutCommas", function () {
+    it("should equal", function () {
+        var f1 = "4,302,334";
+        var f2 = "453,204,400";
+        var f3 = "892,387,438.3984";
+        var result1 = NumUtil.Core.NumberWithoutCommas(f1);
+        var result2 = NumUtil.Core.NumberWithoutCommas(f2);
+        var result3 = NumUtil.Core.NumberWithoutCommas(f3);
+        expect(result1).toBe("4302334");
+        expect(result2).toBe("453204400");
+        expect(result3).toBe("892387438.3984");
+    });
+});
+// ParseFloatNoZeros
 describe("NumUtil.Core.ParseFloatNoZeros", function () {
     it("should equal", function () {
         var f1 = 43.02334;
