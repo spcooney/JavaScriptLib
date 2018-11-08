@@ -1,4 +1,15 @@
-﻿// NumberWithCommas
+﻿// CalcPercentChangeFrom
+describe("NumUtil.Core.CalcPercentChangeFrom", function () {
+    it("should equal", function () {
+        var result1 = NumUtil.Core.CalcPercentChangeFrom(1, 2, 0);
+        var result2 = NumUtil.Core.CalcPercentChangeFrom(2, 4, 0);
+        var result3 = NumUtil.Core.CalcPercentChangeFrom(4, 2, 0);
+        expect(result1).toBe("100");
+        expect(result2).toBe("100");
+        expect(result3).toBe("-50");
+    });
+});
+// NumberWithCommas
 describe("NumUtil.Core.NumberWithCommas", function () {
     it("should equal", function () {
         var f1 = 4302334;

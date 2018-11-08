@@ -96,6 +96,80 @@ DateUtil.Core = DateUtil.prototype = {
         newDate.setHours(hours - offset);
         return newDate;
     },
+    ParseHour: function (hrStr) {
+        if ((hrStr === undefined) || (hrStr === null) || (hrStr.length <= 0)) {
+            return "";
+        }
+        if (hrStr === "0") {
+            return "00";
+        }
+        try {
+            var hrs = parseInt(hrStr.substring(0, hrStr.length), 10);
+            if (isNaN(hrs)) {
+                hrs = "00";
+            }
+            else if (hrs < 10) {
+                hrs = "0" + hrs;
+            }
+            return hrStr;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    },
+    // Attempts to fix someone's time entry and format as the following: HH:MM
+    ParseHoursAndMins: function (timeStr) {
+        // If null or empty, don't bother going any further
+        if ((timeStr === undefined) || (timeStr === null) || (timeStr.length <= 0)) {
+            return "";
+        }
+        // If only 0 entered, make the entire time 00:00
+        if (timeStr === "0") {
+            return "00:00";
+        }
+        // User entered a time without a colon, so add one to the middle of the string
+        if (timeStr.length === 4 && timeStr.indexOf(":") <= 0 && !isNaN(Number(timeStr))) {        
+            return timeStr.substring(0, 2) + ":" + timeStr.substring(2, 4);
+        }
+        // User entered a time without the first 0 and no colon, so add them
+        if (timeStr.length === 3 && timeStr.indexOf(":") <= 0 && !isNaN(Number(timeStr))) {
+            return ("0" + timeStr.substring(0, 1) + ":" + timeStr.substring(1, 3));
+        }
+        // User only enetered the hour, build the string based on that
+        if (timeStr.length === 1 && !isNaN(Number(timeStr))) {
+            return ("0" + timeStr + ":00");
+        }
+        // User only entered the hour, but the hour is double digits
+        if (timeStr.length === 2 && !isNaN(Number(timeStr))) {
+            return (timeStr + ":00");
+        }
+        if (timeStr.indexOf(":") <= 0) {
+            return "";
+        }
+        try {
+            var hrs = parseInt(timeStr.substring(0, timeStr.indexOf(":")), 10);
+            if (isNaN(hrs)) {
+                hrs = "00";
+            }
+            else if (hrs < 10) {
+                hrs = "0" + hrs;
+            }
+            var mins;
+            if (timeStr.indexOf(":") < timeStr.length) {
+                mins = parseInt(timeStr.substring(timeStr.indexOf(":") + 1, timeStr.length), 10);
+                if (isNaN(mins)) {
+                    mins = "00";
+                }
+                else if (mins < 10) {
+                    mins = "0" + mins;
+                }
+            }
+            return (hrs + ":" + mins);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    },
     Ticks: function (dateTime) {
         var ticks = 0;
         var date = new Date(dateTime);

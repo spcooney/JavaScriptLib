@@ -13,6 +13,19 @@ NumUtil.Core = NumUtil.prototype = {
             return new retObj;
         }
     },
+    CalcPercentChangeFrom: function (startVal, endVal, precision) {
+        if (isNaN(startVal) || isNaN(endVal)) {
+            return 0;
+        }
+        if ((startVal === 0) || (endVal === 0)) {
+            return 0;
+        }
+        var subt = (((endVal * 10) - (startVal * 10)) / 10);
+        if ((precision === null) || (precision <= 0)) {
+            precision = 2;
+        }
+        return NumUtil.Core.ParseFloatNoZerosWithCommas(((subt.toPrecision(precision) / Math.abs(startVal.toPrecision(precision))) * 100), precision);
+    },
     NumberWithCommas: function (value) {
         var parts = value.toString().split(".");
         parts[0] = parts[0].replace(/,/g, "");
@@ -70,6 +83,10 @@ NumUtil.Core = NumUtil.prototype = {
             return ('0' + subVal);
         }
         return subVal;
+    },
+    // Parses a float to the specified precision, comma separates the thousand places, and removes trailing zeros
+    ParseFloatNoZerosWithCommas: function (value, precision) {
+        return NumUtil.Core.NumberWithCommas(NumUtil.Core.ParseFloatNoZeros(value, precision));
     },
     ParseFloatWithCommas: function (value) {
         var parts = value.toString().split(".");
